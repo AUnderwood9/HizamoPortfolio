@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+	<link rel="stylesheet" href="fonts/icons/icofont/icofont.min.css">
+	<link rel="stylesheet" href="styles/reset.css">
+	<link rel="stylesheet" href="styles/fontReset.css">
+	<link rel="stylesheet" href="styles/portfolioFonts.css">
+	<link rel="stylesheet" href="styles/generalComponents.css">
+	<link rel="stylesheet" href="styles/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<nav id="header-nav" class="headerNav">
+		<nav class="navContainerStart">
+			<button class="headerButtonLeft defaultFlatButton">About Me</button>
+			<button class="headerButtonLeft defaultFlatButton">Resume</button>
+			<button class="headerButtonLeft defaultFlatButton">Projects</button>
+			<button class="headerButtonLeft defaultFlatButton">Contact</button>
+		</nav>
+		<nav class="navContainerEnd">
+			<button class="headerButtonRight defaultFlatButton">GitHub</button>
+			<button class="headerButtonRight defaultFlatButton">LinkedIn</button>
+		</nav>
+	</nav>
+	<div id="page-body-container" class="mainContainer">
+		
+		<div id="portfolio-hero-section" class="contentRow1 flexSectionContentColumn">
+			<h1>Coding Fulfilled</h1>
+			<div class="quickNavButtons">
+				<button id="summary-section-nav-button" class="defaultFlatButton secondaryFlatButtonColored">Summary</button>
+				<button id="skill-overview-section-nav-button" class="defaultFlatButton secondaryFlatButtonColored">Skills</button>
+				<button id="contact-section-nav-button" class="defaultFlatButton secondaryFlatButtonColored">Contact</button>
+			</div>
+			<img class="roundedPortfolioHeadShot" src="images/headShotFix.jpg" alt="A photo of me"/>
+		</div>
+		<div id="my-summary-section" class="contentRow2">
+			<div class="headlineInfoContainer">
+					<img id="summary-section-portfolio-image" class="roundedPortfolioHeadShot hideEaseComponent" src="images/headShotFix.jpg" alt="A photo of me"/>
+					<p>
+						I am a web developer, born and raised in the magic city. I am able to work with front end as well as back end developement as the situation requires.
+						My preference however is slightly on the back end side of things. I am proficient in HTML, CSS, JavaScript as well as React.
+						I enjoy learning new things and new concepts just as much as I love experimenting with them.
+					</p>
+			</div>
+			<div class="dividerLine"></div>
+			<div class="headLineImageList">
+				<div class="iconBlock">
+					<i class="icofont-navigation-menu"></i>
+					<h5>Responsive</h5>
+				</div>
+				<div class="iconBlock">
+					<i class="icofont-monitor"></i>
+					<h5>Clean</h5>
+				</div>
+				<div class="iconBlock">
+					<i class="icofont-code"></i>
+					<h5>Functional</h5>
+				</div>
+			</div>
+		</div>
+		<div id="my-skill-overview-section" class="contentRow3 flexSectionContentColumn">
+			<select name="orderSkillsByDropDown" id="order-skills-by-dropdown">
+				<option value="orderByExperience">Order by Experience</option>
+				<option value="orderByFavor">Order by favorite</option>
+			</select>
+			<h1 class="sectionContentHeader">Skills</h1>
+			<div class="skillListingContainer" id="skill-listing">
+
+			</div>
+		</div>
+		<div id="contact-me-section" class="contentRow4 flexSectionContentColumn">
+			<h1 class="sectionContentHeader">Contact</h1>
+			<div class="contactSectionContent">
+				<div class="contactFormDescription">
+					<p class="mainFontColor">
+						Please, feel free to shoot me a message if you would like to inquire about my work, employment or some design ideas. 
+						I look forward to hearing from you!
+					</p>
+					<a href="https://github.com/AUnderwood9" target="blank"><i class="pe-so-github"></i></a>
+					<a href="https://www.linkedin.com/in/andrew-underwood-5b796813a/" target="blank"><i class="pe-so-linkedin"></i></a>
+				</div>
+					
+				<form class="contactFormContainer" action="POST">
+					<input class="contactInputSpacing" type="text" name="submitterName" id="submitter-name" placeholder="Your Name: ">
+					<input class="contactInputSpacing" type="text" name="submitterEmail" id="submitter-email" placeholder="Your Email: ">
+					<textarea class="contactInputSpacing" name="submitterMessageBox" id="submitter-message-box" cols="30" rows="10" placeholder="Speak your mind!"></textarea>
+					<button class="defaultFlatButton secondaryFlatButtonColored" type="submit" id="contact-form-submit-button">Lets talk!</button>
+				</form>
+			</div>
+		</div>
+		<footer class="portfolioFooter">
+			<h4>My portfolio</h4>
+		</footer>
+	</div>
+
+	<script src="src/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+@import url("../fonts/icons/Icon-font-social-PIXEDEN-v-1-1-2/pe-icon-social/css/pe-icon-social.css");
+
+@font-face {
+    font-family: "cabinOpenSans";
+    src: url("../fonts/Open_Sans/OpenSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "cabinOpenSansLight";
+    src: url("../fonts/Open_Sans/OpenSans-Light.ttf");
+}
+
+@font-face {
+    font-family: "robotoOpenSans";
+    src: url("../fonts/Open_Sans_Roboto/OpenSans-SemiBold.ttf");
+}
+
+h1, h2, h3, h4, h5, h6, p{
+	color: #F9F6F2;
+	font-family: "cabinOpenSans";
+}
+
+.iconBlock h5{
+	font-weight: 200;
+}
+
+p{
+	font-family: "cabinOpenSansLight";
+	font-weight: 500;
+}
+
+button{
+	font-family: "robotoOpenSans";
+	font-weight: 200;
+}
+
+.mainFontColor{
+	color: #262626;
+}
+
+.iconBlock h5{
+	color: black;
+	/* text-align: center; */
+}
+
+.sectionContentHeader{
+	color: black;
+	text-align: center;
+}
+
+.contactFormDescription a{
+	color: black;
+}
+
+.contactFormDescription a:hover{
+	color: #417fcc;
+}
+
+.contactFormDescription i{
+	font-size: 3em;
+	padding: 1em 0.5em;
+}

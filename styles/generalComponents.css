@@ -1,0 +1,19 @@
+.defaultFlatButton{
+	border: 0;
+	background: none;
+	box-shadow: none;
+	border-radius: 2px;
+}
+
+.secondaryFlatButtonColored{
+	background-color: rgba(65,127,204,0.95);
+	-webkit-box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.2);
+	box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.2);
+}
+
+.dividerLine{
+	width: 100%;
+	height: 47px;
+	border-bottom: 1px solid black;
+}
