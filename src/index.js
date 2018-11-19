@@ -10,12 +10,14 @@ window.onload = function(){
 	var summarySectionPortfolioImage = document.getElementById("summary-section-portfolio-image");
 	var skillOverviewSection = document.getElementById("my-skill-overview-section");
 	var skillListing = document.getElementById("skill-listing");
-	var skillListingSelectionOption = document.getElementsByName("orderSkillsByDropDown");
+	var skillListingSelectionOption = document.getElementById("order-skills-by-dropdown");
 	var contactSection = document.getElementById("contact-me-section");
 	var summarySectionNavButton =  document.getElementById("summary-section-nav-button");
 	var skillOverviewSectionNavButton = document.getElementById("skill-overview-section-nav-button");
 	var contactSectionNavButton = document.getElementById("contact-section-nav-button");
 	var contactFormSubmitButton = document.getElementById("contact-form-submit-button");
+
+	// Prepare skill listing
 	// blue -> red (beginner -> advanced)
 	var skillList = [
 		{
@@ -86,11 +88,14 @@ window.onload = function(){
 	}
 
 	skillList.sort(sortByExperience);
-	// skillList.sort(sortByFavor);
-
-	// skillListingSelectionOption.onchange()
 
 	addElementListingToElement(skillListing, skillList);
+
+	document.addEventListener('DOMContentLoaded',function() {
+		document.querySelector('select[name="orderSkillsByDropDown"]').onchange=skillSortEventHandler;
+	},false);
+
+	// End Prepare skill listing
 
 	// var pageBody = document.getElementById("page-body-container");
 
@@ -163,6 +168,33 @@ window.onload = function(){
 		}
 	}
 
+	function removeAllChildNodes(elementToclean){
+		while (elementToclean.firstChild) {
+			elementToclean.removeChild(elementToclean.firstChild);
+		}
+	}
+
+	function skillSortEventHandler(event){
+		
+		skillListing.classList.remove("inviewEaseComponent");
+		skillListing.classList.add("hideEaseComponent");
+		removeAllChildNodes(skillListing);
+		switch(event.target.value){
+			case "orderByFavor" : 
+					skillList.sort(sortByFavor)
+				break;
+			case "orderByExperience" : 
+					skillList.sort(sortByExperience);
+				break;
+		}
+
+		addElementListingToElement(skillListing, skillList);
+
+		skillListing.classList.add("inviewEaseComponent");
+		skillListing.classList.remove("hideEaseComponent");
+	}
+
+	window.onscroll = function(){stickyfyNavBar();};
 	// window.onscroll = function(){stickyfyNavBar(); revealSubHeaderImage();};
-	window.onscroll = function(){revealSubHeaderImage()}
+	// window.onscroll = function(){revealSubHeaderImage()}
 }());
