@@ -9,15 +9,13 @@
 
 
 .headerNav{
-	display: inline-flex;
+	display: flex;
 	/* position: fixed; */
 	justify-content: space-around;
 	align-items: center;	
 	width: 100%;
 	height: 55px;
-	/* border: 2px lightgreen solid; */
 	background-color: #2751e8;
-	/* opacity: 0.95; */
 }
 
 .stickyNav{
@@ -31,15 +29,10 @@
 	padding-top: 60px;
 }
 
-/* 
-.navContainerStart{
-	display: inline-flex;
+[class*="navContainer"]{
+	display: flex;
 	justify-content: space-evenly;
 }
-.navContainerEnd{
-	display: inline-flex;
-	justify-content: space-between;
-} */
 
 [class*="headerButton"]{
 	width: 6em;
@@ -215,7 +208,7 @@
 .headLineImageList{
 	padding-top: 2em;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .iconBlock{
