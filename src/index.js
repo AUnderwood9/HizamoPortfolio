@@ -10,6 +10,7 @@ window.onload = function(){
 	var summarySectionPortfolioImage = document.getElementById("summary-section-portfolio-image");
 	var skillOverviewSection = document.getElementById("my-skill-overview-section");
 	var skillListing = document.getElementById("skill-listing");
+	var skillListingSelectionOption = document.getElementsByName("orderSkillsByDropDown");
 	var contactSection = document.getElementById("contact-me-section");
 	var summarySectionNavButton =  document.getElementById("summary-section-nav-button");
 	var skillOverviewSectionNavButton = document.getElementById("skill-overview-section-nav-button");
@@ -21,7 +22,7 @@ window.onload = function(){
 			name: "React",
 			elementClass: "devicon-react-plain",
 			favor: 1,
-			skillLevel: 2,
+			skillLevel: 1.5,
 			element: document.createElement("icon")
 		},{
 			name: "CSS",
@@ -33,7 +34,7 @@ window.onload = function(){
 			name: "JavaScript",
 			elementClass: "devicon-javascript-plain",
 			favor: 3,
-			skillLevel: 2,
+			skillLevel: 2.2,
 			element: document.createElement("icon")
 		},{
 			name: "PHP",
@@ -57,13 +58,13 @@ window.onload = function(){
 			name: "Html",
 			elementClass: "devicon-html5-plain",
 			favor: 7,
-			skillLevel: 2,
+			skillLevel: 2.4,
 			element: document.createElement("icon")
 		},{
 			name: "Java",
 			elementClass: "devicon-java-plain",
 			favor: 8,
-			skillLevel: 2,
+			skillLevel: 2.3,
 			element: document.createElement("icon")
 		},{
 			name: "C++",
@@ -84,22 +85,12 @@ window.onload = function(){
 		skillList[i].element.className += skillList[i].elementClass + " codeIconFontSize";
 	}
 
-	var currentSkillContainerId;
+	skillList.sort(sortByExperience);
+	// skillList.sort(sortByFavor);
 
-	for(i = 0; i < skillList.length; i++){
-		if(i == 0){
-			var skillListingSection1 = document.createElement("div");
-			skillListingSection1.id = "skill-listing-part-1";
-			skillListing.appendChild(skillListingSection1);
-			currentSkillContainerId = "skill-listing-part-1"
-		} else if ((skillList.length/2) == (i)){
-			var skillListingSection2 = document.createElement("div");
-			skillListingSection2.id = "skill-listing-part-2";
-			skillListing.appendChild(skillListingSection2);
-			currentSkillContainerId = "skill-listing-part-2";
-		}
-		document.getElementById(currentSkillContainerId).appendChild(skillList[i].element);
-	}
+	// skillListingSelectionOption.onchange()
+
+	addElementListingToElement(skillListing, skillList);
 
 	// var pageBody = document.getElementById("page-body-container");
 
@@ -119,14 +110,30 @@ window.onload = function(){
 		  }
 	}
 
-	function revealSubHeaderImage(){
-		if (window.pageYOffset >= portfolioHeroSection.offsetHeight + 50) {
-			summarySectionPortfolioImage.classList.add("displayComponent");
-			// gridBody.classList.add("stickyPadding");
-		  } else {
-			summarySectionPortfolioImage.classList.remove("hideComponent");
-			// gridBody.classList.remove("stickyPadding");
-		  }
+	// function revealSubHeaderImage(){
+	// 	if (window.pageYOffset >= portfolioHeroSection.offsetHeight + 50) {
+	// 		summarySectionPortfolioImage.classList.add("inviewEaseComponent");
+	// 		// gridBody.classList.add("stickyPadding");
+	// 	  } else {
+	// 		summarySectionPortfolioImage.classList.remove("hideEaseComponent");
+	// 		// gridBody.classList.remove("stickyPadding");
+	// 	  }
+	// }
+
+	function sortByExperience(element1, element2){
+		if (element1.skillLevel < element2.skillLevel)
+			return 1;
+		if (element1.skillLevel > element2.skillLevel)
+			return -1;
+		return 0;
+	}
+
+	function sortByFavor(element1, element2){
+		if (element1.favor < element2.favor)
+			return -1;
+		if (element1.favor > element2.favor)
+			return 1;
+		return 0;
 	}
 
 	function submitContactFormAction(event){
@@ -137,6 +144,25 @@ window.onload = function(){
 		elementToScrollTo.scrollIntoView();
 	}
 
-	window.onscroll = function(){stickyfyNavBar(); revealSubHeaderImage();};
-	// window.onscroll = function(){revealSubHeaderImage()}
+	function addElementListingToElement(elementToAddTo, listingToAdd){
+		var currentContainerId;
+
+		for(i = 0; i < listingToAdd.length; i++){
+			if(i == 0){
+				var listingSection1 = document.createElement("div");
+				listingSection1.id = "new-listing-part-1";
+				elementToAddTo.appendChild(listingSection1);
+				currentContainerId = "new-listing-part-1"
+			} else if ((listingToAdd.length/2) == (i)){
+				var listingSection2 = document.createElement("div");
+				listingSection2.id = "new-listing-part-2";
+				elementToAddTo.appendChild(listingSection2);
+				currentContainerId = "new-listing-part-2";
+			}
+			document.getElementById(currentContainerId).appendChild(listingToAdd[i].element);
+		}
+	}
+
+	// window.onscroll = function(){stickyfyNavBar(); revealSubHeaderImage();};
+	window.onscroll = function(){revealSubHeaderImage()}
 }());
