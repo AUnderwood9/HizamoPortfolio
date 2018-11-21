@@ -115,15 +115,21 @@ window.onload = function(){
 		  }
 	}
 
-	// function revealSubHeaderImage(){
-	// 	if (window.pageYOffset >= portfolioHeroSection.offsetHeight + 50) {
-	// 		summarySectionPortfolioImage.classList.add("inviewEaseComponent");
-	// 		// gridBody.classList.add("stickyPadding");
-	// 	  } else {
-	// 		summarySectionPortfolioImage.classList.remove("hideEaseComponent");
-	// 		// gridBody.classList.remove("stickyPadding");
-	// 	  }
+	// revealHeroHeaderImage(){
+
 	// }
+
+	function revealSubHeaderImage(){
+		// console.log(portfolioHeroSection.getBoundingClientRect());
+		// console.log(isElementInViewport(summarySection));
+		if(window.pageYOffset <= summarySection.offsetHeight + 50){
+			summarySectionPortfolioImage.classList.remove("hideEaseComponent");
+			summarySectionPortfolioImage.classList.add("inviewEaseComponent");
+		} else {
+			summarySectionPortfolioImage.classList.remove("inviewEaseComponent");
+			summarySectionPortfolioImage.classList.add("hideEaseComponent");
+		}
+	}
 
 	function sortByExperience(element1, element2){
 		if (element1.skillLevel < element2.skillLevel)
@@ -194,7 +200,24 @@ window.onload = function(){
 		skillListing.classList.remove("hideEaseComponent");
 	}
 
-	window.onscroll = function(){stickyfyNavBar();};
-	// window.onscroll = function(){stickyfyNavBar(); revealSubHeaderImage();};
+	function isElementInViewport (element) {
+
+		//special bonus for those using jQuery
+		if (typeof jQuery === "function" && element instanceof jQuery) {
+			element = element[0];
+		}
+	
+		var bounds = element.getBoundingClientRect();
+	
+		return (
+			bounds.top >= 0 &&
+			bounds.left >= 0 &&
+			bounds.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+			bounds.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+		);
+	}
+
+	// window.onscroll = function(){stickyfyNavBar();};
+	window.onscroll = function(){stickyfyNavBar(); revealSubHeaderImage();};
 	// window.onscroll = function(){revealSubHeaderImage()}
 }());
