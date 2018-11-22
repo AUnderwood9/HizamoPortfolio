@@ -6,6 +6,7 @@
 		var mainNavBar = document.getElementById("header-nav");
 		var gridBody = document.getElementById("page-body-container");
 		var portfolioHeroSection = document.getElementById("portfolio-hero-section");
+		var portfolioHeroSectionHeader = document.getElementById("portfolio-hero-section-header")
 		var heroSectionPortfolioImage = document.getElementById("hero-portfolio-image");
 		var summarySection = document.getElementById("my-summary-section");
 		var summarySectionPortfolioImage = document.getElementById("summary-section-portfolio-image");
@@ -111,7 +112,7 @@
 		contactFormSubmitButton.onclick = function(event){submitContactFormAction(event)}
 
 		function stickyfyNavBar(){
-			if (window.pageYOffset >= mainNavBar.offsetHeight) {
+			if (window.pageYOffset >= heroSectionPortfolioImage.offsetHeight) {
 				mainNavBar.classList.add("stickyNav");
 				gridBody.classList.add("stickyPadding");
 			} else {
