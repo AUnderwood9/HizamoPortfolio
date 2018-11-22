@@ -33,8 +33,14 @@ button{
 	font-family: "robotoOpenSans";
 	font-weight: 200;
 }
-
+/* General */
 .mainFontColor{
+	color: #262626;
+}
+
+/* Section 2 (Summary */
+
+.contentRow2 p{
 	color: #262626;
 }
 

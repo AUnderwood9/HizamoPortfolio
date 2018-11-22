@@ -1,0 +1,30 @@
+.stickyNav{
+	position: fixed;
+	opacity: 0.85;
+	top: 0;
+	z-index: 1;
+	transition: opacity 1s;
+}
+
+.stickyPadding{
+	padding-top: 60px;
+}
+
+.inviewEaseComponent{
+	opacity: 1;
+	-webkit-transition: opacity 0.35s ease-in;
+    -moz-transition: opacity 0.35s ease-in;
+    -o-transition: opacity 0.35s ease-in;
+    -ms-transition: opacity 0.35s ease-in;
+    transition: opacity 0.35s ease-in;
+}
+  
+
+.hideEaseComponent{
+	opacity: 0;
+	-webkit-transition: opacity 0.35s ease-out;
+    -moz-transition: opacity 0.35s ease-out;
+    -o-transition: opacity 0.35s ease-out;
+    -ms-transition: opacity 0.35s ease-out;
+    transition: opacity 0.35s ease-out;
+}
