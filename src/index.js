@@ -19,6 +19,9 @@
 		var contactSectionNavButton = document.getElementById("contact-section-nav-button");
 		var contactFormSubmitButton = document.getElementById("contact-form-submit-button");
 
+		var defaultStickyNavBarBackgroundColor = mainNavBar.style.backgroundColor;
+		var scrollingStickyNavBarBackgroundColor = portfolioHeroSection.style.backgroundColor;
+
 		// console.log(heroSectionPortfolioImage);
 
 		heroSectionPortfolioImage.classList.remove("hideEaseComponent");
@@ -97,13 +100,15 @@
 
 		addElementListingToElement(skillListing, skillList);
 
-		document.addEventListener('DOMContentLoaded',function() {
-			document.querySelector('select[name="orderSkillsByDropDown"]').onchange=skillSortEventHandler;
-		},false);
+		// document.addEventListener('DOMContentLoaded',function() {
+		// 	document.querySelector('select[name="orderSkillsByDropDown"]').onchange=skillSortEventHandler;
+		// },false);
+
+		skillListingSelectionOption.onchange = skillSortEventHandler;
+
+		console.log("assigned");
 
 		// End Prepare skill listing
-
-		// var pageBody = document.getElementById("page-body-container");
 
 		// Assign onclick actions to navigation buttons
 		summarySectionNavButton.onclick = function(){scrollToElementId(summarySection)};
@@ -114,9 +119,13 @@
 		function stickyfyNavBar(){
 			if (window.pageYOffset >= heroSectionPortfolioImage.offsetHeight) {
 				mainNavBar.classList.add("stickyNav");
+				mainNavBar.classList.remove("secondaryBackgroundColor");
+				mainNavBar.classList.add("primaryBackgroundColor");
 				gridBody.classList.add("stickyPadding");
 			} else {
 				mainNavBar.classList.remove("stickyNav");
+				mainNavBar.classList.remove("primaryBackgroundColor");
+				mainNavBar.classList.add("secondaryBackgroundColor");
 				gridBody.classList.remove("stickyPadding");
 			}
 		}
@@ -185,14 +194,10 @@
 			}
 		}
 
-		function removeAllChildNodes(elementToclean){
-			while (elementToclean.firstChild) {
-				elementToclean.removeChild(elementToclean.firstChild);
-			}
-		}
-
-		function skillSortEventHandler(event){
-			
+		function skillSortEventHandler(){
+			var transitionEvent = whichTransitionEvent();
+			console.log("Click");
+			skillListing.addEventListener(transitionEvent, transitionFollowthroughRemoveElements(event, transitionEvent, skillListing));
 			skillListing.classList.remove("inviewEaseComponent");
 			skillListing.classList.add("hideEaseComponent");
 			removeAllChildNodes(skillListing);
@@ -211,26 +216,7 @@
 			skillListing.classList.remove("hideEaseComponent");
 		}
 
-		function isElementInViewport (element) {
-
-			//special bonus for those using jQuery
-			if (typeof jQuery === "function" && element instanceof jQuery) {
-				element = element[0];
-			}
-		
-			var bounds = element.getBoundingClientRect();
-		
-			return (
-				bounds.top >= 0 &&
-				bounds.left >= 0 &&
-				bounds.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
-				bounds.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
-			);
-		}
-
-		// window.onscroll = function(){stickyfyNavBar();};
 		window.onscroll = function(){stickyfyNavBar(); revealSubHeaderImage();};
-		// window.onscroll = function(){revealSubHeaderImage()}
 	}
 
 	function elementOffset(element) {
@@ -240,3 +226,33 @@
 		return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 	}
 	
+	function whichTransitionEvent(){
+		var t,
+			el = document.createElement("fakeelement");
+	  
+		var transitions = {
+		  "transition"      : "transitionend",
+		  "OTransition"     : "oTransitionEnd",
+		  "MozTransition"   : "transitionend",
+		  "WebkitTransition": "webkitTransitionEnd"
+		}
+	  
+		for (t in transitions){
+		  if (el.style[t] !== undefined){
+			return transitions[t];
+		  }
+		}
+	  }
+
+	  function removeAllChildNodes(elementToclean){
+			while (elementToclean.firstChild) {
+				elementToclean.removeChild(elementToclean.firstChild);
+			}
+		}
+
+	  function transitionFollowthroughRemoveElements(event, listener, nodesToRemove){
+		  event.target.removeEventListener(listener, transitionFollowthroughRemoveElements);
+
+		  console.log("followthrough");
+		  removeAllChildNodes(nodesToRemove);
+	  }

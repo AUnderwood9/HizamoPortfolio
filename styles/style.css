@@ -1,12 +1,16 @@
 /* 
 	Color Spectrum:
-		Blue (Main?): #0B3954 #004577 #2751e8 #417fcc #2667b7 #66C9FF
+		Blue (Main?): #0B3954 #004577 #2751e8 #417fcc #2667b7 #66C9FF #BFD7EA #A3BCF9
 		Green: #087E8B
-		Grey: #3f3f3f #ABBACC #D8FOFF
+		Grey: #3f3f3f #ABBACC #C9CAD9 #D8FOFF  #8693AB
 		Black: #262626
 */
 
-.headerNav{
+.primaryBackgroundColor{
+	background-color: #FF475F;
+}
+
+.secondaryBackgroundColor{
 	background-color: #2751e8;
 }
 
@@ -22,14 +26,14 @@ a[class*="headerButton"].defaultFlatButton{
 	background-color: rgb(234, 236, 238);
 }
 
-.contentRow1{
-	background-color: #FF475F;
-}
-
 .dividerLine{
 	width: 50%;
 	align-self: flex-end;
 	border-color: #ABBACC;
+}
+
+.artisanSectionFlexDivider{
+	border: 0.75px rgba(201, 202, 217, 0.30) solid;
 }
 
 .portfolioFooter{
@@ -46,4 +50,8 @@ a[class*="headerButton"].defaultFlatButton{
 
 .iconBlock:nth-of-type(3) [class*="icofont"]{
 	color: #087E8B;
+}
+
+.footerDivider{
+	background-color: #A3BCF9;
 }

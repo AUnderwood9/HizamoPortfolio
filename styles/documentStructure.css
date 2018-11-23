@@ -6,7 +6,7 @@
 	/* padding-top: 10px; */
 
 	grid-template-columns: 10vw 80vw 8.90vw;
-	grid-template-rows: 95vh 95vh 90vh 90vh 10vh;
+	grid-template-rows: 95vh 95vh 90vh 90vh 20vh;
 	grid-template-areas: 
 	"contentRow1 contentRow1 contentRow1"
 	". contentRow2 ."
@@ -65,6 +65,12 @@
 
 .secondaryFlatButtonColored{
 	height: 2.25em;
+}
+
+
+.artisanSectionFlexDivider{
+	width: 75%;
+	align-self: center;
 }
 
 /* End General components Structures */
@@ -192,4 +198,8 @@
 	display: block;
 	text-align: center;
 	grid-area: contentRow5;
+}
+
+.footerDivider{
+	height: 8vh;
 }
