@@ -7,7 +7,8 @@
 */
 
 .primaryBackgroundColor{
-	background-color: #FF475F;
+	/* background-color: #FF475F; */
+	background-color: rgba(255, 71, 95, 0.6);
 }
 
 .secondaryBackgroundColor{
@@ -22,7 +23,7 @@ a[class*="headerButton"].defaultFlatButton{
 	text-decoration: none;
 }
 
-.mainContainer{
+.ternaryBackgroundColor{
 	background-color: rgb(234, 236, 238);
 }
 

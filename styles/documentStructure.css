@@ -32,6 +32,7 @@
 
 [class*="contentRow"]{
 	display: flex;
+	z-index: 1;
 }
 
 .flexSectionContentColumn{
@@ -96,7 +97,6 @@
 	height: 2em;
 	cursor: pointer;
 }
-
 /* End Nav components */
 
 
@@ -198,8 +198,10 @@
 	display: block;
 	text-align: center;
 	grid-area: contentRow5;
+	z-index: 1;
 }
 
 .footerDivider{
 	height: 8vh;
+	z-index: 1;
 }
