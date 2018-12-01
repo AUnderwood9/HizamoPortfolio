@@ -39,7 +39,7 @@ a[class*="headerButton"].defaultFlatButton{
 }
 
 .portfolioFooter{
-	background-color: #262626;
+	background-color: rgba(38, 38, 38, 0.85);
 }
 
 .iconBlock:nth-of-type(1) [class*="icofont"]{

@@ -5,11 +5,9 @@
 	display: -ms-grid;
 
 	grid-template-columns: 100vw;
-	grid-template-rows: 95vh 300vh 20vh;
+	grid-template-rows: 95vh 2fr 20vh;
 	grid-template-areas: 
 	"contentRow1"
-	"contentPageBodyContainer"
-	"contentPageBodyContainer"
 	"contentPageBodyContainer"
 	"contentRow5";
 /* 
