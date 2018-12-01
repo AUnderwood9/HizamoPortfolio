@@ -121,7 +121,7 @@
 				mainNavBar.classList.add("stickyNav");
 				mainNavBar.classList.remove("secondaryBackgroundColor");
 				mainNavBar.classList.add("primaryBackgroundColor");
-				gridBody.classList.add("stickyPadding");
+				// gridBody.classList.add("stickyPadding");
 			} else {
 				mainNavBar.classList.remove("stickyNav");
 				mainNavBar.classList.remove("primaryBackgroundColor");
