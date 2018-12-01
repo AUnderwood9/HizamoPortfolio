@@ -3,16 +3,15 @@
 .mainContainer{
 	display: grid;
 	display: -ms-grid;
-	/* padding-top: 10px; */
 
-	grid-template-columns: 10vw 80vw 8.90vw;
-	grid-template-rows: 95vh 95vh 90vh 90vh 20vh;
+	grid-template-columns: 100vw;
+	grid-template-rows: 95vh 300vh 20vh;
 	grid-template-areas: 
-	"contentRow1 contentRow1 contentRow1"
-	". contentRow2 ."
-	". contentRow3 ."
-	". contentRow4 ."
-	"contentRow5 contentRow5 contentRow5";
+	"contentRow1"
+	"contentPageBodyContainer"
+	"contentPageBodyContainer"
+	"contentPageBodyContainer"
+	"contentRow5";
 /* 
 	grid-template: 
 	[row1-start] "contentRow1" 100% [row1-end]
@@ -100,10 +99,23 @@
 }
 /* End Nav components */
 
-
 .contentRow1{
 	grid-area: contentRow1;
 	padding: 8em 5em 0em 5em;
+}
+
+.contentPageBodyContainer{
+	grid-area: contentPageBodyContainer;
+	display: grid;
+	display: -ms-grid;
+	z-index: 1;
+
+	grid-template-columns: 10vw 80vw 8.90vw;
+	grid-template-rows: 95vh 90vh 90vh;
+	grid-template-areas: 
+	". contentRow2 ."
+	". contentRow3 ."
+	". contentRow4 .";
 }
 
 .contentRow2{
