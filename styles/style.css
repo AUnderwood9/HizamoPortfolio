@@ -28,6 +28,10 @@ a[class*="headerButton"].defaultFlatButton{
 	background-color: rgb(234, 236, 238);
 }
 
+.quaternaryBackgroundColor{
+	background-color: rgba(38, 38, 38, 0.85);
+}
+
 .dividerLine{
 	width: 50%;
 	align-self: flex-end;

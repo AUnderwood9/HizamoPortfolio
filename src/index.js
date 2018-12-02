@@ -18,6 +18,12 @@
 		var skillOverviewSectionNavButton = document.getElementById("skill-overview-section-nav-button");
 		var contactSectionNavButton = document.getElementById("contact-section-nav-button");
 		var contactFormSubmitButton = document.getElementById("contact-form-submit-button");
+		var sectionCoordinates = {
+			heroSectionPortfolioImage: elementOffset(heroSectionPortfolioImage).top,
+			summarySection: elementOffset(summarySection).top,
+			skillOverviewSection: elementOffset(skillListing).top,
+			contactSection: elementOffset(contactSection).top
+		};
 
 		var defaultStickyNavBarBackgroundColor = mainNavBar.style.backgroundColor;
 		var scrollingStickyNavBarBackgroundColor = portfolioHeroSection.style.backgroundColor;
@@ -100,10 +106,6 @@
 
 		addElementListingToElement(skillListing, skillList);
 
-		// document.addEventListener('DOMContentLoaded',function() {
-		// 	document.querySelector('select[name="orderSkillsByDropDown"]').onchange=skillSortEventHandler;
-		// },false);
-
 		skillListingSelectionOption.onchange = skillSortEventHandler;
 
 		console.log("assigned");
@@ -116,18 +118,26 @@
 		contactSectionNavButton.onclick = function(){scrollToElementId(contactSection)};
 		contactFormSubmitButton.onclick = function(event){submitContactFormAction(event)}
 
+		console.log("Offsets: Hero Image: " + sectionCoordinates.heroSectionPortfolioImage + " Summary: " + sectionCoordinates.summarySection + " Skills: " + sectionCoordinates.skillOverviewSection);
+
 		function stickyfyNavBar(){
-			if (window.pageYOffset >= heroSectionPortfolioImage.offsetHeight) {
+			// console.log("Page offset: " + window.pageYOffset);
+			if(window.pageYOffset >= sectionCoordinates.heroSectionPortfolioImage && window.pageYOffset <= sectionCoordinates.summarySection){
 				mainNavBar.classList.add("stickyNav");
-				mainNavBar.classList.remove("secondaryBackgroundColor");
-				mainNavBar.classList.add("primaryBackgroundColor");
-				// gridBody.classList.add("stickyPadding");
-			} else {
+				replaceClassBySubString(mainNavBar, "Color", "primaryBackgroundColor");
+			} else if(window.pageYOffset >= sectionCoordinates.summarySection && window.pageYOffset <= sectionCoordinates.skillOverviewSection){
+				// replaceClassBySubString(mainNavBar, "Color", "quaternaryBackgroundColor");
+			} else if(window.pageYOffset >= sectionCoordinates.skillOverviewSection && window.pageYOffset <= sectionCoordinates.contactSection){
+			} else if(window.pageYOffset >= sectionCoordinates.contactSection){
+				replaceClassBySubString(mainNavBar, "Color", "quaternaryBackgroundColor");
+			} else if(window.pageYOffset < sectionCoordinates.heroSectionPortfolioImage){
 				mainNavBar.classList.remove("stickyNav");
-				mainNavBar.classList.remove("primaryBackgroundColor");
-				mainNavBar.classList.add("secondaryBackgroundColor");
-				gridBody.classList.remove("stickyPadding");
+				replaceClassBySubString(mainNavBar, "Color", "secondaryBackgroundColor");
 			}
+		}
+
+		function replaceClassBySubString(element, subStringToSearch, classToAdd){
+			element.classList.replace(element.classList.value.match("\\w*(" + subStringToSearch + ")")[0], classToAdd);
 		}
 
 		function revealSubHeaderImage(){

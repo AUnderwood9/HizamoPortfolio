@@ -4,7 +4,7 @@
 	display: grid;
 	display: -ms-grid;
 
-	grid-template-columns: 100vw;
+	grid-template-columns: 98.9vw;
 	grid-template-rows: 95vh 2fr 20vh;
 	grid-template-areas: 
 	"contentRow1"
@@ -108,7 +108,7 @@
 	display: -ms-grid;
 	z-index: 1;
 
-	grid-template-columns: 10vw 80vw 8.90vw;
+	grid-template-columns: 8.90vw 80vw 8.90vw;
 	grid-template-rows: 95vh 90vh 90vh;
 	grid-template-areas: 
 	". contentRow2 ."
