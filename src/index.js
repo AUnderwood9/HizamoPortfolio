@@ -18,20 +18,13 @@
 		var skillOverviewSectionNavButton = document.getElementById("skill-overview-section-nav-button");
 		var contactSectionNavButton = document.getElementById("contact-section-nav-button");
 		var contactFormSubmitButton = document.getElementById("contact-form-submit-button");
-		var sectionCoordinates = {
-			heroSectionPortfolioImage: elementOffset(heroSectionPortfolioImage).top,
-			summarySection: elementOffset(summarySection).top,
-			skillOverviewSection: elementOffset(skillListing).top,
-			contactSection: elementOffset(contactSection).top
-		};
 
 		var defaultStickyNavBarBackgroundColor = mainNavBar.style.backgroundColor;
 		var scrollingStickyNavBarBackgroundColor = portfolioHeroSection.style.backgroundColor;
 
-		// console.log(heroSectionPortfolioImage);
-
 		heroSectionPortfolioImage.classList.remove("hideEaseComponent");
 		heroSectionPortfolioImage.classList.add("inviewEaseComponent");
+
 		// Prepare skill listing
 		// blue -> red (beginner -> advanced)
 		var skillList = [
@@ -108,9 +101,15 @@
 
 		skillListingSelectionOption.onchange = skillSortEventHandler;
 
-		console.log("assigned");
-
 		// End Prepare skill listing
+
+		// Add section coordinates to coordinate objects after everything has been attatched to the DOM
+		var sectionCoordinates = {
+			heroSectionPortfolioImage: elementOffset(heroSectionPortfolioImage).top,
+			summarySection: elementOffset(summarySection).top,
+			skillOverviewSection: elementOffset(skillListing).top,
+			contactSection: elementOffset(contactSection).top
+		};
 
 		// Assign onclick actions to navigation buttons
 		summarySectionNavButton.onclick = function(){scrollToElementId(summarySection)};
@@ -128,8 +127,9 @@
 			} else if(window.pageYOffset >= sectionCoordinates.summarySection && window.pageYOffset <= sectionCoordinates.skillOverviewSection){
 				// replaceClassBySubString(mainNavBar, "Color", "quaternaryBackgroundColor");
 			} else if(window.pageYOffset >= sectionCoordinates.skillOverviewSection && window.pageYOffset <= sectionCoordinates.contactSection){
-			} else if(window.pageYOffset >= sectionCoordinates.contactSection){
 				replaceClassBySubString(mainNavBar, "Color", "quaternaryBackgroundColor");
+			} else if(window.pageYOffset >= sectionCoordinates.contactSection){
+				// replaceClassBySubString(mainNavBar, "Color", "quaternaryBackgroundColor");
 			} else if(window.pageYOffset < sectionCoordinates.heroSectionPortfolioImage){
 				mainNavBar.classList.remove("stickyNav");
 				replaceClassBySubString(mainNavBar, "Color", "secondaryBackgroundColor");

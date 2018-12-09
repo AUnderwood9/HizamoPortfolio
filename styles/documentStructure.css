@@ -76,6 +76,7 @@
 /* Nav components */
 
 .headerNav{
+	/* padding-top: 10px; */
 	display: flex;
 	position: fixed;
 	z-index: 2;
@@ -87,7 +88,7 @@
 
 [class*="navContainer"]{
 	display: flex;
-	justify-content: space-evenly;
+	padding-top: 1%;
 }
 
 [class*="headerButton"]{
