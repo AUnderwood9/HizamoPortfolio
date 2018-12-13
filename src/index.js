@@ -129,7 +129,7 @@
 			} else if(window.pageYOffset >= sectionCoordinates.skillOverviewSection && window.pageYOffset <= sectionCoordinates.contactSection){
 				replaceClassBySubString(mainNavBar, "Color", "quaternaryBackgroundColor");
 			} else if(window.pageYOffset >= sectionCoordinates.contactSection){
-				// replaceClassBySubString(mainNavBar, "Color", "quaternaryBackgroundColor");
+				replaceClassBySubString(mainNavBar, "Color", "quinaryBackgroundColor");
 			} else if(window.pageYOffset < sectionCoordinates.heroSectionPortfolioImage){
 				mainNavBar.classList.remove("stickyNav");
 				replaceClassBySubString(mainNavBar, "Color", "secondaryBackgroundColor");
