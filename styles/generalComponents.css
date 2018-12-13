@@ -3,10 +3,12 @@
 	background: none;
 	box-shadow: none;
 	border-radius: 2px;
+	/* text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); */
 }
 
 .secondaryFlatButtonColored{
 	background-color: rgba(65,127,204,0.95);
+	border-bottom: 3px solid rgba(25,107,235,0.95);
 	-webkit-box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.2);
 	-moz-box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.2);
 	box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.2);

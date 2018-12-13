@@ -1,6 +1,6 @@
 /* 
 	Color Spectrum:
-		Blue (Main?): #0B3954 #004577 #2751e8 #417fcc #2667b7 #66C9FF #BFD7EA #A3BCF9
+		Blue (Main?): #0B3954 #004577 #2751e8 #417fcc #2667b7 #66ccff #BFD7EA #A3BCF9
 		Green: #087E8B
 		Grey: #3f3f3f #ABBACC #C9CAD9 #D8FOFF  #8693AB
 		Black: #262626
@@ -30,6 +30,13 @@ a[class*="headerButton"].defaultFlatButton{
 
 .quaternaryBackgroundColor{
 	background-color: rgba(38, 38, 38, 0.85);
+}
+
+.quinaryBackgroundColor{
+	/* background-color: rgba(38, 38, 38, 0.85); */
+	/* background-color: #D8FOFF; */
+	/* background-color: #ABBACC;  */
+	background-color: rgba(171, 186, 204, 0.85);
 }
 
 .dividerLine{
