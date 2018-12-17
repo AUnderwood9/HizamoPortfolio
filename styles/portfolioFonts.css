@@ -29,13 +29,19 @@ p{
 	font-weight: 500;
 }
 
-button{
+button, [class*="headerButton"], .primaryButtonFont{
 	font-family: "robotoOpenSans";
 	font-weight: 200;
 }
 /* General */
 .mainFontColor{
 	color: #262626;
+}
+
+/* Nav Bar */
+
+[class*="headerButton"],.primaryHeaderTextColor{
+	color: #F9F6F2;
 }
 
 /* Section 2 (Summary */

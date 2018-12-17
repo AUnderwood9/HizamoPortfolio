@@ -16,10 +16,6 @@
 	background-color: #2751e8;
 }
 
-[class*="headerButton"]{
-	color: #F9F6F2;
-}
-
 a[class*="headerButton"].defaultFlatButton{
 	text-decoration: none;
 }
